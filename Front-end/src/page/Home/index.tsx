@@ -2,6 +2,8 @@ import React from "react";
 import * as S from "./styled";
 import Logo from "../../assets/coopers.png";
 import ImgLogo from "../../assets/coopersBg.png";
+import ApLogo from "../../assets/ap.jpg";
+import IconsScroll from "../../assets/iconScroll.png";
 
 export const Home: React.FC = () => {
 
@@ -40,16 +42,25 @@ export const Home: React.FC = () => {
         </S.OrganizeToDoList>
 
         <S.ContentDiv>
-            <S.DrawingLogo>
-              <img width={"72%"} src={ImgLogo} alt="Logo coopers"/>
-            </S.DrawingLogo>
-            <div>
-              img bonita
-            </div>
+          <S.FigureLogo>
+            <img width={"78%"} src={ImgLogo} alt="Logo coopers" />
+          </S.FigureLogo>
+          <S.Figure>
+            <img width={"89%"} src={ApLogo} alt="imagem do ap" />
+          </S.Figure>
         </S.ContentDiv>
 
       </S.Section>
-
+      <S.FigureIcon>
+        <img src={IconsScroll} alt="icons sete" />
+      </S.FigureIcon>
+      <S.DragAndDiv>
+        <S.H1>To-do List</S.H1>
+        <S.SpanList>
+          Drag and drop to set your main priorities, check when done and
+          create what´s new.
+        </S.SpanList>
+      </S.DragAndDiv>
     </S.Container>
   )
 }

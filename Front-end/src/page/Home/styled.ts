@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import BackGroundImg from "../../assets/black.png";
 
-export const Container = styled.div`
+export const Container = styled.main`
     width: 100%;
     height: 100vw;
     display: flex;
@@ -127,10 +128,60 @@ export const ButtonTodoList = styled.button`
 export const ContentDiv = styled.div`
     width: 50%;
     margin-top: -6%;
-    border: 1px solid black;
 `
 
-export const DrawingLogo = styled.div`
+export const FigureLogo = styled.div`
    display: flex;
    flex-direction: row-reverse;
+   
+`
+
+export const Figure = styled.figure`
+    position: absolute;
+    margin-top: -36%;
+    margin-left: 18%;
+`
+
+export const FigureIcon = styled.figure`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -8%;
+`
+
+export const DragAndDiv = styled.div`
+    height: 29vw;
+    background-image: url(${BackGroundImg});
+    background-size: cover;
+    background-position: center;
+`
+
+export const H1 = styled.h1`
+    position: absolute;
+    margin-left: 40%;
+    margin-top: 10%;
+    font-family: Poppins;
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 60px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #ffffff;
+`
+
+export const SpanList = styled.span`
+    position: absolute;
+    width: 36vw;
+    height: 3.68vw;
+    left: 32vw;
+    top: 59vw;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #FFFFFF;
+
 `
