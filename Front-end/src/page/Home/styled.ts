@@ -183,5 +183,24 @@ export const SpanList = styled.span`
     line-height: 29px;
     text-align: center;
     color: #FFFFFF;
+`
 
+// container do cart to-do e done
+
+export const ContentTodoNone = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    align-items: center;
+    margin: 2%;
+`
+export const ItemTodo = styled.div`
+    grid-column: 1 / 2;
+    border: 1px solid black;
+    margin: 3%;
+`
+
+export const ItemDone = styled.div`
+    grid-column: 2 / 3; 
+    border: 1px solid black;
+    margin: 3%;
 `

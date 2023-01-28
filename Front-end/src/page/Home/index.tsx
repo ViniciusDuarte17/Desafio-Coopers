@@ -61,6 +61,15 @@ export const Home: React.FC = () => {
           create what´s new.
         </S.SpanList>
       </S.DragAndDiv>
+
+      <S.ContentTodoNone>
+          <S.ItemTodo>
+            to-do
+          </S.ItemTodo>
+          <S.ItemDone>
+           done
+          </S.ItemDone>
+      </S.ContentTodoNone>
     </S.Container>
   )
 }
