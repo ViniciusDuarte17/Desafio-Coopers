@@ -4,6 +4,8 @@ import Logo from "../../assets/coopers.png";
 import ImgLogo from "../../assets/coopersBg.png";
 import ApLogo from "../../assets/ap.jpg";
 import IconsScroll from "../../assets/iconScroll.png";
+import RectanglePng from "../../assets/Rectangle.png";
+import RectangleDone from "../../assets/RectangleDone.png";
 
 export const Home: React.FC = () => {
 
@@ -57,19 +59,39 @@ export const Home: React.FC = () => {
       <S.DragAndDiv>
         <S.H1>To-do List</S.H1>
         <S.SpanList>
-          Drag and drop to set your main priorities, check when done and
+          Drag and drop to set your main priorities, check <br /> when done and
           create what´s new.
         </S.SpanList>
       </S.DragAndDiv>
 
       <S.ContentTodoNone>
-          <S.ItemTodo>
-            to-do
-          </S.ItemTodo>
-          <S.ItemDone>
-           done
-          </S.ItemDone>
+        <S.ItemTodo>
+          <img width={"100%"} height={"5%"} src={RectanglePng} alt="todo" />
+
+          <S.DivTodo>
+            <h2>To-do</h2>
+            <br />
+            <span> Take a breath. </span>
+            <span>Start doing. </span>
+          </S.DivTodo>
+
+        </S.ItemTodo>
+        <S.ItemDone>
+          <img width={"100%"} height={"5%"} src={RectangleDone} alt="done" />
+
+          <div>
+            <h2>Done</h2>
+            <span>Congratulions! </span>
+            <span><strong>You have done 5 tasks</strong></span>
+          </div>
+        </S.ItemDone>
       </S.ContentTodoNone>
+
+      <S.GoodThings>
+          <S.DivTextGood>
+              <span>good things</span>
+          </S.DivTextGood>
+      </S.GoodThings>
     </S.Container>
   )
 }
