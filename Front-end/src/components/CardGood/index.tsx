@@ -9,7 +9,6 @@ import Collapse from '@mui/material/Collapse';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-// import LogoBitmap from "../../assets/bitmap.png";
 import LogoCoopersBg from "../../assets/coopersBg.png";
 
 
