@@ -19,7 +19,7 @@ export const Header = styled.header`
     padding: 2%;
 `
 
-export const Img = styled.img `
+export const Img = styled.img`
     width: 10em;
 `
 
@@ -70,7 +70,7 @@ export const TextSpanOrganize = styled.span`
 
 `
 
-export const TextSpanJoby= styled.span`
+export const TextSpanJoby = styled.span`
 
     font-family: 'Montserrat';
     font-style: normal;
@@ -267,6 +267,7 @@ export const GoodThings = styled.div`
     height: 32vw;
     margin: auto;
     background-color: #4AC959;
+    margin-bottom: 2%;
 `
 
 export const DivTextGood = styled.div`
@@ -274,7 +275,8 @@ export const DivTextGood = styled.div`
     width: 20vw;
     margin-left: 8%;
     justify-content: center;
-    margin-top: 8%;
+    margin-top: 6%;
+    margin-bottom: 4%;
 
     span {
         font-family: 'Montserrat';
@@ -284,4 +286,9 @@ export const DivTextGood = styled.div`
         line-height: 110%;
         color:#ffffff;
     }
+`
+
+export const ContentCardGood = styled.div`
+    display: flex;
+    margin-left: 6%;
 `

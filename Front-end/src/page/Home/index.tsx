@@ -6,6 +6,11 @@ import ApLogo from "../../assets/ap.jpg";
 import IconsScroll from "../../assets/iconScroll.png";
 import RectanglePng from "../../assets/Rectangle.png";
 import RectangleDone from "../../assets/RectangleDone.png";
+import { CardGood } from "../../components/CardGood";
+import LogoImgArt2 from "../../assets/bitmapArt2.png";
+import LogoBitmap from "../../assets/bitmap.png";
+import LogoBitmapArt from "../../assets/bitmapArt.png";
+
 
 export const Home: React.FC = () => {
 
@@ -88,9 +93,24 @@ export const Home: React.FC = () => {
       </S.ContentTodoNone>
 
       <S.GoodThings>
-          <S.DivTextGood>
-              <span>good things</span>
-          </S.DivTextGood>
+        <S.DivTextGood>
+          <span>good things</span>
+        </S.DivTextGood>
+
+        <S.ContentCardGood>
+          <CardGood
+            logoImg={LogoBitmap}
+            text="Organize your daily job enhance your life performance"
+          />
+          <CardGood
+            logoImg={LogoBitmapArt}
+            text="Mark one activity as done makes your brain understands the power of doing."
+          />
+          <CardGood
+            logoImg={LogoImgArt2}
+            text="Careful with missunderstanding the difference between a list of things and a list of desires."
+          />
+        </S.ContentCardGood>
       </S.GoodThings>
     </S.Container>
   )
