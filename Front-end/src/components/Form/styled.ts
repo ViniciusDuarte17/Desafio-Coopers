@@ -13,7 +13,6 @@ export const HeaderForm = styled.div`
     height: 35vh;
     width: 40%;
     border-radius: 0px;
-    /* border: 1px solid green; */
 `
 
 export const DivGrafismo = styled.div`
@@ -86,7 +85,6 @@ export const DivToItemEmail = styled.div`
     display: flex;
     flex-direction: column;
     width: 40%;
-    /* margin-left: 10%; */
     span {
         color: #06152B;
         padding-bottom: 1.5%;
@@ -99,7 +97,6 @@ export const DivtoItemPhone = styled.div`
     display: flex;
     flex-direction: column;
     width: 40%;
-    /* margin-right: 10%; */
     span {
         color: #06152B;
         padding-bottom: 1.5%;
