@@ -184,7 +184,6 @@ export const SpanList = styled.span`
 export const ContentTodoNone = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr; 
-    /* border: 1px solid red; */
     min-height: 90vh;
     padding-bottom: 5%;
 `
@@ -316,7 +315,6 @@ export const ContentCardGood = styled.div`
 
 export const DivEllips = styled.div`
     width: 99%;
-    /* margin-top: 8%; */
     padding: .5%;
     display: flex;
     align-items: center;
@@ -327,5 +325,4 @@ export const Div = styled.div`
     width: 10%;
     display: flex;
     justify-content: space-around;
-    /* padding-bottom: 5%; */
 `
