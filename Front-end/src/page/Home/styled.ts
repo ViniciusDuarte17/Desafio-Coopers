@@ -3,7 +3,7 @@ import BackGroundImg from "../../assets/black.png";
 
 export const Container = styled.main`
     width: 100%;
-    min-height: 100vw;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     color: #000000;
@@ -267,7 +267,28 @@ export const GoodThings = styled.div`
     height: 32vw;
     margin: auto;
     background-color: #4AC959;
-    margin-bottom: 2%;
+    margin-bottom: 10%;
+    @media  screen and (min-width: 985px) and (max-width: 1068px){
+        margin-bottom: 25%;
+     
+    }
+
+    @media  screen and (min-width: 850px) and (max-width: 984px){
+        margin-bottom: 35%;
+        
+    }
+    @media  screen and (min-width: 720px) and (max-width: 849px){
+        margin-bottom: 52%;
+       
+    }
+    @media  screen and (min-width: 585px) and (max-width: 719px){
+        margin-bottom: 70%;
+       
+    }
+    @media  screen and (min-width: 400px) and (max-width: 584px){
+        margin-bottom: 90%;
+       
+    }
 `
 
 export const DivTextGood = styled.div`
@@ -291,4 +312,20 @@ export const DivTextGood = styled.div`
 export const ContentCardGood = styled.div`
     display: flex;
     margin-left: 6%;
+`
+
+export const DivEllips = styled.div`
+    width: 99%;
+    /* margin-top: 8%; */
+    padding: .5%;
+    display: flex;
+    align-items: center;
+`
+
+export const Div = styled.div`
+    margin: auto;
+    width: 10%;
+    display: flex;
+    justify-content: space-around;
+    /* padding-bottom: 5%; */
 `

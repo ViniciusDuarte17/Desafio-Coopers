@@ -10,42 +10,31 @@ import { CardGood } from "../../components/CardGood";
 import LogoImgArt2 from "../../assets/bitmapArt2.png";
 import LogoBitmap from "../../assets/bitmap.png";
 import LogoBitmapArt from "../../assets/bitmapArt.png";
-
+import LogoEllipseGreen from "../../assets/ellipseGreen.png";
+import LogoEllipseNone from "../../assets/ellipseNone.png";
+import { Form } from "../../components/Form";
 
 export const Home: React.FC = () => {
-
   return (
     <S.Container>
-
       <S.Header>
         <S.Img src={Logo} alt="logo coopers" />
-        <S.Button>
-          entrar
-        </S.Button>
+        <S.Button>entrar</S.Button>
       </S.Header>
 
       <S.Section>
-
         <S.OrganizeToDoList>
+          <S.TextSpanOrganize>Organize</S.TextSpanOrganize>
 
-          <S.TextSpanOrganize>
-            Organize
-          </S.TextSpanOrganize>
+          <S.TextSpanJoby>your daily jobs</S.TextSpanJoby>
 
-          <S.TextSpanJoby>
-            your daily jobs
-          </S.TextSpanJoby>
-
-          <S.TextSpan>
-            The only way to get things done
-          </S.TextSpan>
+          <S.TextSpan>The only way to get things done</S.TextSpan>
 
           <S.NavTodoList>
             <S.ButtonTodoList>
               <span>Go to to-do list</span>
             </S.ButtonTodoList>
           </S.NavTodoList>
-
         </S.OrganizeToDoList>
 
         <S.ContentDiv>
@@ -56,7 +45,6 @@ export const Home: React.FC = () => {
             <img width={"89%"} src={ApLogo} alt="imagem do ap" />
           </S.Figure>
         </S.ContentDiv>
-
       </S.Section>
       <S.FigureIcon>
         <img src={IconsScroll} alt="icons sete" />
@@ -79,7 +67,6 @@ export const Home: React.FC = () => {
             <span> Take a breath. </span>
             <span>Start doing. </span>
           </S.DivTodo>
-
         </S.ItemTodo>
         <S.ItemDone>
           <img width={"100%"} height={"5%"} src={RectangleDone} alt="done" />
@@ -87,7 +74,9 @@ export const Home: React.FC = () => {
           <div>
             <h2>Done</h2>
             <span>Congratulions! </span>
-            <span><strong>You have done 5 tasks</strong></span>
+            <span>
+              <strong>You have done 5 tasks</strong>
+            </span>
           </div>
         </S.ItemDone>
       </S.ContentTodoNone>
@@ -112,6 +101,14 @@ export const Home: React.FC = () => {
           />
         </S.ContentCardGood>
       </S.GoodThings>
+      <S.DivEllips>
+        <S.Div>
+          <img width={"15%"} src={LogoEllipseGreen} alt="icon-green" />
+          <img width={"15%"} src={LogoEllipseNone} alt="icon-none" />
+          <img width={"15%"} src={LogoEllipseNone} alt="icon-none" />
+        </S.Div>
+      </S.DivEllips>
+      <Form />
     </S.Container>
-  )
-}
+  );
+};

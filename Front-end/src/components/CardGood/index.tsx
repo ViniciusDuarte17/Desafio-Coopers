@@ -49,7 +49,7 @@ export const CardGood = ({logoImg, text}: Props) => {
                     alt="Paella dish"
                 />
                 <S.CoopersImg>
-                    <img width={"12%"} src={logoImg} alt="Logo do coopers" />
+                    <img width={"12%"} src={LogoCoopersBg} alt="Logo do coopers" />
                 </S.CoopersImg>
                 <CardContent>
                     <Typography variant="body2" color="text.secondary">
