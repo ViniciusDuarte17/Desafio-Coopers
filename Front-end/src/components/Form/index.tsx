@@ -4,6 +4,8 @@ import LogoProfile from "../../assets/tatiana.png";
 import LogoVector from "../../assets/Vector.png";
 import { Button, TextField } from "@mui/material";
 import { useForm } from "../../hooks/useForm";
+import emailjs from "@emailjs/browser";
+import { RemoveFromQueue } from "@mui/icons-material";
 
 export const Form = () => {
 
@@ -11,9 +13,22 @@ export const Form = () => {
         { name: "", email: "", phone: '', message: ""}
     );
 
-    const onSubmitForm = (event: React.ChangeEvent<HTMLInputElement> | any) => {
+    const senEmail = (event: React.ChangeEvent<HTMLInputElement> | any) => {
         event.preventDefault();
         console.log(form)
+        const templatePrams = {
+            from_name: form.name,
+            from_phone: form.phone,
+            message: form.message,
+            email: form.email
+        }
+
+        emailjs.send("service_inf0kgn", "template_zwd537c", templatePrams, "jXJRYGqqcSDqvmY-A")
+        .then( (res) => {
+            console.log("EMAIL ENVIADO", res.status,res.text)
+        }, (err) => {
+            console.log(err)
+        })
         clean()
     }
     return (
@@ -27,7 +42,7 @@ export const Form = () => {
                     <img width={"100%"} src={LogoProfile} alt="profile" />
                 </S.DivProfile>
             </S.HeaderForm>
-            <S.Form onSubmit={onSubmitForm}>
+            <S.Form onSubmit={senEmail}>
                 <S.ContentItemTouch>
                     <S.DivTouch>
                         <img width={"25px"} src={LogoVector} alt="e-mail" />
