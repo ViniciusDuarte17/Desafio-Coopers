@@ -115,6 +115,10 @@ export const ContentItemMessage = styled.div`
     width: 85%;
     margin-top: 4%;
     margin-left: 10%;
+    span{
+        color: #06152B;
+        margin-bottom: 1.5%;;
+    }
 `
 
 export const DivToItemButton = styled.div`
