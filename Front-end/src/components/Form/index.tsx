@@ -8,12 +8,13 @@ import { useForm } from "../../hooks/useForm";
 export const Form = () => {
 
     const { form, onChange, clean } = useForm(
-        { name: "", email: "", phone: null, message: ""}
+        { name: "", email: "", phone: '', message: ""}
     );
 
     const onSubmitForm = (event: React.ChangeEvent<HTMLInputElement> | any) => {
         event.preventDefault();
         console.log(form)
+        clean()
     }
     return (
         <S.Container>
@@ -48,6 +49,7 @@ export const Form = () => {
                         onChange={onChange}
                         placeholder="type your name here..."
                         variant="outlined"
+                        required
                     />
                 </S.DivToItemTextField>
                 <S.ContentItemForm>
@@ -60,6 +62,7 @@ export const Form = () => {
                             onChange={onChange}
                             placeholder="example@example.com"
                             variant="outlined"
+                            required
                         />
                     </S.DivToItemEmail>
                     <S.DivtoItemPhone>
@@ -71,6 +74,7 @@ export const Form = () => {
                             onChange={onChange}
                             placeholder="( ) ____-____"
                             variant="outlined"
+                            required
                         />
                     </S.DivtoItemPhone>
                 </S.ContentItemForm>
@@ -85,6 +89,7 @@ export const Form = () => {
                         variant="outlined"
                         multiline
                         rows={4}
+                        required
                     />
                 </S.ContentItemMessage>
                 <S.DivToItemButton>
