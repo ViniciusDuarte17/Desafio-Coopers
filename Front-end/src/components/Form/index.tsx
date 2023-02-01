@@ -3,8 +3,18 @@ import LogoGrafismo from "../../assets/grafismo.png";
 import LogoProfile from "../../assets/tatiana.png";
 import LogoVector from "../../assets/Vector.png";
 import { Button, TextField } from "@mui/material";
+import { useForm } from "../../hooks/useForm";
 
 export const Form = () => {
+
+    const { form, onChange, clean } = useForm(
+        { name: "", email: "", phone: null, message: ""}
+    );
+
+    const onSubmitForm = (event: React.ChangeEvent<HTMLInputElement> | any) => {
+        event.preventDefault();
+        console.log(form)
+    }
     return (
         <S.Container>
             <S.HeaderForm>
@@ -16,7 +26,7 @@ export const Form = () => {
                     <img width={"100%"} src={LogoProfile} alt="profile" />
                 </S.DivProfile>
             </S.HeaderForm>
-            <S.Form>
+            <S.Form onSubmit={onSubmitForm}>
                 <S.ContentItemTouch>
                     <S.DivTouch>
                         <img width={"25px"} src={LogoVector} alt="e-mail" />
@@ -32,6 +42,10 @@ export const Form = () => {
                 <S.DivToItemTextField>
                     <span>You name</span>
                     <TextField
+                        type={'text'}
+                        name={"name"}
+                        value={form.name}
+                        onChange={onChange}
                         placeholder="type your name here..."
                         variant="outlined"
                     />
@@ -40,6 +54,10 @@ export const Form = () => {
                     <S.DivToItemEmail>
                         <span>Email*</span>
                         <TextField
+                            type={'email'}
+                            name={"email"}
+                            value={form.email}
+                            onChange={onChange}
                             placeholder="example@example.com"
                             variant="outlined"
                         />
@@ -47,6 +65,10 @@ export const Form = () => {
                     <S.DivtoItemPhone>
                         <span>Telephone*</span>
                         <TextField
+                            type={'number'}
+                            name={"phone"}
+                            value={form.phone}
+                            onChange={onChange}
                             placeholder="( ) ____-____"
                             variant="outlined"
                         />
@@ -55,6 +77,10 @@ export const Form = () => {
                 <S.ContentItemMessage>
                     <span>Message*</span>
                     <TextField
+                        type={'text'}
+                        name={"message"}
+                        value={form.message}
+                        onChange={onChange}
                         placeholder="Type what you want to say to us"
                         variant="outlined"
                         multiline
@@ -66,6 +92,7 @@ export const Form = () => {
                         size="large"
                         fullWidth
                         variant="contained"
+                        type="submit"
                     >
                         <span>Send now</span>
                     </Button>
