@@ -44,6 +44,18 @@ export const Button = styled.button`
     :hover{
         background-color:#000a50;
     }
+
+    @media screen and (min-width: 717px) and (max-width: 940px){
+        width: 5.5em;
+    }
+
+    @media screen and (min-width: 560px) and (max-width: 716px){
+        width: 4em;
+    }
+
+    @media screen and (min-width: 473px) and (max-width: 559px){
+        width: 3.2em;
+    }
 `
 
 export const Section = styled.section`
