@@ -5,7 +5,7 @@ import LogoVector from "../../assets/Vector.png";
 import { Button, TextField } from "@mui/material";
 import { useForm } from "../../hooks/useForm";
 import emailjs from "@emailjs/browser";
-import { RemoveFromQueue } from "@mui/icons-material";
+
 
 export const Form = () => {
 
@@ -15,7 +15,7 @@ export const Form = () => {
 
     const senEmail = (event: React.ChangeEvent<HTMLInputElement> | any) => {
         event.preventDefault();
-        console.log(form)
+        
         const templatePrams = {
             from_name: form.name,
             from_phone: form.phone,
@@ -25,7 +25,7 @@ export const Form = () => {
 
         emailjs.send("service_inf0kgn", "template_zwd537c", templatePrams, "jXJRYGqqcSDqvmY-A")
         .then( (res) => {
-            console.log("EMAIL ENVIADO", res.status,res.text)
+            alert("FORMULÁRIO ENVIADO COM SUCESSO!")
         }, (err) => {
             console.log(err)
         })
