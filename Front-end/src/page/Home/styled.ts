@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import BackGroundImg from "../../assets/black.png";
+import FooterImg from "../../assets/Footer.png";
 
 export const Container = styled.main`
     width: 100%;
-    min-height: 100%;
+    min-height: 100vw;
     display: flex;
     flex-direction: column;
     color: #000000;
@@ -288,6 +289,9 @@ export const GoodThings = styled.div`
         margin-bottom: 90%;
        
     }
+    @media  screen and (min-width: 300px) and (max-width: 499px){
+        margin-bottom: 100%;
+    }
 `
 
 export const DivTextGood = styled.div`
@@ -325,4 +329,40 @@ export const Div = styled.div`
     width: 10%;
     display: flex;
     justify-content: space-around;
+`
+
+// Daqui para baixo estilização do footer
+
+export const Footer = styled.footer`
+    width: 100%;
+    height: 18vw;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+    background-image: url(${FooterImg});
+    span {
+        margin: .5%;
+        color: #ffff;
+    }
+    p{
+        margin: .5%;
+        color: #ffff;
+        font-size: 14px;
+    }
+`
+
+export const DivFooter = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4%;
+`
+
+export const DivImgFooter = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 2%;
 `

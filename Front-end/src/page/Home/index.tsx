@@ -13,6 +13,7 @@ import LogoBitmapArt from "../../assets/bitmapArt.png";
 import LogoEllipseGreen from "../../assets/ellipseGreen.png";
 import LogoEllipseNone from "../../assets/ellipseNone.png";
 import { Form } from "../../components/Form";
+import LogoFooterImg from "../../assets/FooterImg.png";
 
 export const Home: React.FC = () => {
   return (
@@ -109,6 +110,18 @@ export const Home: React.FC = () => {
         </S.Div>
       </S.DivEllips>
       <Form />
+
+      <S.Footer>
+        <S.DivFooter>
+        <span>Need help?</span>
+        <span>coopers@coopers.pro</span>
+        <p>© 2021 Coopers. All rights reserved.</p>
+        </S.DivFooter>
+      
+        <S.DivImgFooter> 
+          <img width={"25%"} src={LogoFooterImg} alt="img footer" />
+        </S.DivImgFooter>
+      </S.Footer>
     </S.Container>
   );
 };

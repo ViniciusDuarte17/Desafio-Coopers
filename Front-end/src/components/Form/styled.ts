@@ -4,6 +4,19 @@ import styled from "styled-components";
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
+    margin-bottom: 6%;
+
+    @media screen and (min-width: 763px) and (max-width: 898px){
+        margin-bottom: 12%;
+    }
+
+    @media screen and (min-width: 500px) and (max-width: 762px){
+        margin-bottom: 20%;
+    }
+
+    @media screen and (min-width: 500px) and (max-width: 652px){
+        margin-bottom: 35%;
+    }
 `
 
 
