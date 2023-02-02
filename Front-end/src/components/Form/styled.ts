@@ -5,18 +5,6 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     margin-bottom: 6%;
-
-    @media screen and (min-width: 763px) and (max-width: 898px){
-        margin-bottom: 12%;
-    }
-
-    @media screen and (min-width: 500px) and (max-width: 762px){
-        margin-bottom: 20%;
-    }
-
-    @media screen and (min-width: 500px) and (max-width: 652px){
-        margin-bottom: 35%;
-    }
 `
 
 
@@ -59,6 +47,20 @@ export const Form = styled.form`
     margin-top: -7%;
     margin-bottom: 2%;
     border-radius: 16px;
+
+    @media screen and (min-width: 780px) and (max-width: 905px){
+        width: 40%;
+        height: 80vh;
+    }
+    @media screen and (min-width: 450px) and (max-width: 779px){
+        width: 65%;
+        height: 85vh;
+    }
+    @media screen and (min-width: 100px) and (max-width: 449px){
+        width: 85%;
+        height: 85vh;
+    }
+
 `
 
 export const ContentItemTouch = styled.div`
