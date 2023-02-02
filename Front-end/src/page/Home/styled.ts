@@ -207,24 +207,18 @@ export const ItemTodo = styled.div`
     border: 1px solid black;
     margin-left: 36%;
     width:28vw;
-    border: 1px solid blue;
-    min-height:88vh;
+    border: 1px solid rgba(66, 66, 66, 0.1985);
+    min-height:90vh;
 `
 
 export const ItemDone = styled.div`
     display: flex;
     flex-direction: column;
     grid-column: 2 / 3; 
-    border: 1px solid black;
+    border: 1px solid rgba(66, 66, 66, 0.1985);
     width:28vw;
-    height: 78vh;
+    min-height: 86vh;
 
-    div {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
 
     h2 {
         font-family: 'Poppins';
@@ -245,6 +239,20 @@ export const ItemDone = styled.div`
         text-align: center;
         color: #000000;
     }
+`
+
+export const DivAlignItem = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+
+export const ComponentCart = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
 `
 
 export const DivTodo = styled.div`
@@ -377,4 +385,16 @@ export const DivImgFooter = styled.div`
     align-items: center;
     justify-content: space-between;
     padding-top: 2%;
+`
+
+export const AlignButton = styled.div`
+    width: 70%;
+    margin: auto;
+`
+
+export const AlignButtonTodo = styled.div`
+    width: 70%;
+    margin: auto;
+    margin-top: 6%;
+    margin-bottom: 6%;
 `

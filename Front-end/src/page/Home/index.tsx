@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./styled";
 import Logo from "../../assets/coopers.png";
 import ImgLogo from "../../assets/coopersBg.png";
@@ -14,8 +14,39 @@ import LogoEllipseGreen from "../../assets/ellipseGreen.png";
 import LogoEllipseNone from "../../assets/ellipseNone.png";
 import { Form } from "../../components/Form";
 import LogoFooterImg from "../../assets/FooterImg.png";
+import { CardTodo } from "../../components/CardTodo";
+import LogoDone from "../../assets/Vector.png";
+import LogoRadius from "../../assets/EllipseRadius.png";
+import LogoRadiusOrange from "../../assets/EllipseRadiusOrange.png";
+import { getTask } from "../../services/getTask";
+import { Button } from "@mui/material";
+import { useDrop } from "react-dnd";
 
 export const Home: React.FC = () => {
+  const [task, setTask] = useState<any[]>([]);
+
+  const [{ isOver }, drop] = useDrop<any, any, any>(() => ({
+    accept: "img",
+    drop: (item) => addTask(item.id),
+    collect: (monitor: any) => ({
+      isOver: !!monitor.isOver(),
+    }),
+  }));
+
+  const addTask = (id: string) => {
+    const taskList = task && task.filter( item => id === item.id)
+   
+    setTask( (task) => [...task, taskList])
+    console.log(taskList)
+    // console.log(taskList.map(item => item.status + 1))
+  };
+
+  const taskDone =
+    task && task.filter((item) => item.status !== 0).map((item) => item);
+
+  useEffect(() => {
+    getTask(setTask);
+  }, []);
   return (
     <S.Container>
       <S.Header>
@@ -59,7 +90,7 @@ export const Home: React.FC = () => {
       </S.DragAndDiv>
 
       <S.ContentTodoNone>
-        <S.ItemTodo>
+        <S.ItemTodo ref={drop}>
           <img width={"100%"} height={"5%"} src={RectanglePng} alt="todo" />
 
           <S.DivTodo>
@@ -68,17 +99,58 @@ export const Home: React.FC = () => {
             <span> Take a breath. </span>
             <span>Start doing. </span>
           </S.DivTodo>
+          <S.ComponentCart>
+            <CardTodo img={LogoRadius} text="this is a new task" />
+            {task &&
+              task
+                .filter((item) => item.status !== 1)
+                .map((item) => (
+                  <CardTodo
+                    img={LogoRadiusOrange}
+                    text={item.title}
+                    id={item.id}
+                  />
+                ))}
+          </S.ComponentCart>
+          <S.AlignButtonTodo>
+            <Button
+              color="secondary"
+              fullWidth
+              variant="contained"
+              size="large"
+            >
+              erase all
+            </Button>
+          </S.AlignButtonTodo>
         </S.ItemTodo>
-        <S.ItemDone>
+        <S.ItemDone ref={drop}>
           <img width={"100%"} height={"5%"} src={RectangleDone} alt="done" />
 
-          <div>
+          <S.DivAlignItem>
             <h2>Done</h2>
             <span>Congratulions! </span>
             <span>
-              <strong>You have done 5 tasks</strong>
+              <strong>You have done {taskDone.length} tasks</strong>
             </span>
-          </div>
+          </S.DivAlignItem>
+          <S.ComponentCart>
+            {task &&
+              task
+                .filter((item) => item.status !== 0)
+                .map((item) => <CardTodo img={LogoDone} text={item.title} />)}
+          </S.ComponentCart>
+
+          <S.AlignButton>
+            <Button
+              color="secondary"
+              fullWidth
+              variant="contained"
+              size="large"
+            >
+              erase all
+            </Button>
+          </S.AlignButton>
+         
         </S.ItemDone>
       </S.ContentTodoNone>
 
@@ -113,12 +185,12 @@ export const Home: React.FC = () => {
 
       <S.Footer>
         <S.DivFooter>
-        <span>Need help?</span>
-        <span>coopers@coopers.pro</span>
-        <p>© 2021 Coopers. All rights reserved.</p>
+          <span>Need help?</span>
+          <span>coopers@coopers.pro</span>
+          <p>© 2021 Coopers. All rights reserved.</p>
         </S.DivFooter>
-      
-        <S.DivImgFooter> 
+
+        <S.DivImgFooter>
           <img width={"25%"} src={LogoFooterImg} alt="img footer" />
         </S.DivImgFooter>
       </S.Footer>

@@ -1,11 +1,38 @@
+import * as S from "./styled";
+import {DragSourceMonitor, useDrag} from "react-dnd";
 
+interface Props {
+    img?: string,
+    text?: string,
+    id?: string
+}
 
+export const CardTodo = ({ img, text, id }: Props) => {
 
-export const CardDone= () => {
+    const [{ isDragging }, drag] = useDrag(
+        () => ({
+          type: "img",
+          item:{id: id},
+          collect: (monitor: DragSourceMonitor) => ({
+            isDragging: monitor.isDragging(),
+          }),
+        }),
+      )
 
-    return(
-        <div>
-            card Done
-        </div>
+    return (
+        <S.Container>
+            <S.ContentDone ref={drag} >
+                <img src={img} alt="Logo de status" />
+                <span style={{border: isDragging ? "1px solid #46BD62" : "none"}}>{text}</span>
+            </S.ContentDone>
+        </S.Container>
     )
 }
+
+
+ // const [{isDragging}, drag] = useDrag( () => ({
+    //     type: "image",
+    //     collect: (monitor => {
+    //         isDragging: !!monitor.isDragging()
+    //     })
+    // }))
