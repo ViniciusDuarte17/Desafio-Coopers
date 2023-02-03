@@ -1,9 +1,11 @@
 
-POST http://localhost:3000/user/singup
+POST http://localhost:3003/signUp
 Content-Type: application/json
 
 {
-    
+    "user": "vinicius",
+    "email": "vinicius@gmail.com",
+    "password": "vinicius123"
 }
 
 ###

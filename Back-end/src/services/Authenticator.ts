@@ -2,17 +2,22 @@ import * as jwt from "jsonwebtoken";
 
 import dotenv from "dotenv";
 dotenv.config();
+
+export type AuthenticationData = {
+  id: string
+}
+
 export class Authenticator {
-  generationToken = (payload: string) => {
-    return jwt.sign(payload, process.env.JWT_KEY as string, {
+  generationToken = ( {id}: AuthenticationData) : string => {
+    return jwt.sign({id}, process.env.JWT_KEY as string, {
       expiresIn: process.env.JWT_DURATION
     });
   };
-  getTokenData = (token: string) => {
+  getTokenData = (token: string)  => {
     try {
       const tokenData = jwt.verify(token, process.env.JWT_KEY as string) as string;
 
-      return tokenData;
+      return tokenData as string;
     } catch (err) {
       console.log(err);
       return err;
