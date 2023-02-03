@@ -28,7 +28,7 @@ export const Home: React.FC = () => {
   const [task, setTask] = useState<task[]>([]);
   const [isValue, setIsValue] = useState<boolean>();
   const [counter, setCounter] = useState<number>(0);
-  console.log(task)
+  
   const [{ isOver, canDrop }, drop] = useDrop<task, any, any>(
     () => ({
       accept: "str",
