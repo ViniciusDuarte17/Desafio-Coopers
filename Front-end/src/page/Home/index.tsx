@@ -21,6 +21,7 @@ import LogoRadiusOrange from "../../assets/EllipseRadiusOrange.png";
 import { getTask } from "../../services/getTask";
 import { Button } from "@mui/material";
 import { useDrop } from "react-dnd";
+import { udateTastk } from "../../services/udateTastk";
 
 export const Home: React.FC = () => {
   const [task, setTask] = useState<any[]>([]);
@@ -35,18 +36,19 @@ export const Home: React.FC = () => {
 
   const addTask = (id: string) => {
     const taskList = task && task.filter( item => id === item.id)
-   
-    setTask( (task) => [...task, taskList])
-    console.log(taskList)
-    // console.log(taskList.map(item => item.status + 1))
+    // const idTask = taskList[0]?.id
+    const body = {
+      status: taskList[0]?.status
+    }
+    console.log(taskList[0]?.id, body)
+    udateTastk(taskList[0]?.id, body, setTask)
   };
 
-  const taskDone =
-    task && task.filter((item) => item.status !== 0).map((item) => item);
+  const taskDone = task && task.filter((item) => item.status !== 0).map((item) => item);
 
   useEffect(() => {
     getTask(setTask);
-  }, []);
+  }, [task]);
   return (
     <S.Container>
       <S.Header>
@@ -106,6 +108,7 @@ export const Home: React.FC = () => {
                 .filter((item) => item.status !== 1)
                 .map((item) => (
                   <CardTodo
+                    key={item.id}
                     img={LogoRadiusOrange}
                     text={item.title}
                     id={item.id}
@@ -137,7 +140,7 @@ export const Home: React.FC = () => {
             {task &&
               task
                 .filter((item) => item.status !== 0)
-                .map((item) => <CardTodo img={LogoDone} text={item.title} />)}
+                .map((item) => <CardTodo key={item.id} img={LogoDone} text={item.title} />)}
           </S.ComponentCart>
 
           <S.AlignButton>
