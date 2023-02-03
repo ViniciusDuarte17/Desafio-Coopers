@@ -20,10 +20,10 @@ export class UserController {
         
     } catch (error) {
       if (error instanceof CustomError) {
-        res.status(error.statusCode).send({ message:" error.message" });
+        res.status(error.statusCode).send({ message: error.message});
       } else if (error) {
         console.log(error)
-        res.status(400).send({ message: "error" });
+        res.status(400).send({ message: error });
       } else {
         res.status(500).send({ message: "Server error" });
       }
