@@ -11,7 +11,7 @@ export const CardTodo = ({ img, text, id }: Props) => {
 
     const [{ isDragging }, drag] = useDrag(
         () => ({
-          type: "img",
+          type: "str",
           item:{id: id},
           collect: (monitor: DragSourceMonitor) => ({
             isDragging: monitor.isDragging(),
@@ -28,11 +28,3 @@ export const CardTodo = ({ img, text, id }: Props) => {
         </S.Container>
     )
 }
-
-
- // const [{isDragging}, drag] = useDrag( () => ({
-    //     type: "image",
-    //     collect: (monitor => {
-    //         isDragging: !!monitor.isDragging()
-    //     })
-    // }))

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import * as S from "./styled";
 import Logo from "../../assets/coopers.png";
 import ImgLogo from "../../assets/coopersBg.png";
@@ -22,33 +22,50 @@ import { getTask } from "../../services/getTask";
 import { Button } from "@mui/material";
 import { useDrop } from "react-dnd";
 import { udateTastk } from "../../services/udateTastk";
+import { task } from "../../@types/typeTask";
 
 export const Home: React.FC = () => {
-  const [task, setTask] = useState<any[]>([]);
-
-  const [{ isOver }, drop] = useDrop<any, any, any>(() => ({
-    accept: "img",
-    drop: (item) => addTask(item.id),
-    collect: (monitor: any) => ({
-      isOver: !!monitor.isOver(),
+  const [task, setTask] = useState<task[]>([]);
+  const [isValue, setIsValue] = useState<boolean>();
+  const [counter, setCounter] = useState<number>(0);
+  console.log(task)
+  const [{ isOver, canDrop }, drop] = useDrop<task, any, any>(
+    () => ({
+      accept: "str",
+      drop: (item) => addTask(item.id),
+      collect: (monitor: any) => ({
+        isOver: !!monitor.isOver(),
+        canDrop: !!monitor.canDrop(),
+      }),
     }),
-  }));
+    [isValue, counter]
+  );
+ 
 
   const addTask = (id: string) => {
-    const taskList = task && task.filter( item => id === item.id)
-   
-    const body = {
-      status: taskList && taskList[0]?.status
+    setIsValue(canDrop);
+    setCounter(+1);
+
+    const taskList = task && task?.find((item) => id === item.id);
+    if (taskList === undefined) {
+      alert("arraste novamente");
     }
-    console.log(taskList[0]?.id && taskList[0]?.id, body)
-    udateTastk(taskList[0]?.id && taskList[0]?.id, body, setTask)
+    const body = {
+      status: taskList && taskList?.status,
+    };
+    if (taskList !== undefined) {
+      setIsValue(canDrop);
+      setCounter(+1);
+      udateTastk(taskList?.id as string, body, setTask);
+    }
   };
 
-  const taskDone = task && task.filter((item) => item.status !== 0).map((item) => item);
+  const taskDone = task && task.filter((item) => item.status !== 0);
 
   useEffect(() => {
     getTask(setTask);
-  }, [task]);
+  }, [ counter ]);
+
   return (
     <S.Container>
       <S.Header>
@@ -92,7 +109,7 @@ export const Home: React.FC = () => {
       </S.DragAndDiv>
 
       <S.ContentTodoNone>
-        <S.ItemTodo ref={drop}>
+        <S.ItemTodo>
           <img width={"100%"} height={"5%"} src={RectanglePng} alt="todo" />
 
           <S.DivTodo>
@@ -140,7 +157,9 @@ export const Home: React.FC = () => {
             {task &&
               task
                 .filter((item) => item.status !== 0)
-                .map((item) => <CardTodo key={item.id} img={LogoDone} text={item.title} />)}
+                .map((item) => (
+                  <CardTodo key={item.id} img={LogoDone} text={item.title} />
+                ))}
           </S.ComponentCart>
 
           <S.AlignButton>
@@ -153,7 +172,6 @@ export const Home: React.FC = () => {
               erase all
             </Button>
           </S.AlignButton>
-         
         </S.ItemDone>
       </S.ContentTodoNone>
 
