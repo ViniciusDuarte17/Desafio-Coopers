@@ -1,33 +1,21 @@
 import * as jwt from "jsonwebtoken";
-import { IAuthenticator } from "../ports/Ports";
 
+import dotenv from "dotenv";
+dotenv.config();
+export class Authenticator {
+  generationToken = (payload: string) => {
+    return jwt.sign(payload, process.env.JWT_KEY as string, {
+      expiresIn: process.env.JWT_DURATION
+    });
+  };
+  getTokenData = (token: string) => {
+    try {
+      const tokenData = jwt.verify(token, process.env.JWT_KEY as string) as string;
 
-export class Authenticator implements IAuthenticator {
-  private static expiresIn: number = 1200;
-  public generateToken(input: AuthenticationData): string {
-    const token = jwt.sign(
-      {
-        id: input.id
-      },
-      process.env.JWT_KEY as string,
-      {
-        expiresIn: Authenticator.expiresIn,
-      }
-    );
-    return token;
-  }
-
-  public getData(token: string): AuthenticationData {
-    const payload = jwt.verify(token, process.env.JWT_KEY as string) as any;
-    const result = {
-      id: payload.id,
-      role: payload.role
-    };
-    return result;
-  }
-}
-
-export interface AuthenticationData {
-  id: string;
-  role?: string;
+      return tokenData;
+    } catch (err) {
+      console.log(err);
+      return err;
+    }
+  };
 }

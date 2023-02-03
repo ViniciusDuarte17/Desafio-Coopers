@@ -1,17 +1,12 @@
-import * as bcrypt from "bcryptjs";
-import { IHashManger } from "../ports/Ports";
-
- export class HashManager implements IHashManger {
-
-    public async hash(text: string): Promise<string> {
-        const rounds = 12;
-        const salt = await bcrypt.genSalt(rounds);
-        const result = await bcrypt.hash(text, salt);
-        return result;
-    }
-
-    public async compare(text: string, hash: string): Promise<boolean>{
-        return await bcrypt.compare(text, hash);
-    }
+import { compareSync, genSaltSync, hashSync } from "bcryptjs";
+export class HashManager {
+  createHash = (plainText: string): string => {
+    const cost: number = 12;
+    const salt: string = genSaltSync(cost);
+    const cypherText: string = hashSync(plainText, salt);
+    return cypherText;
+  };
+  compareHash = (plainText: string, cypherText: string): boolean => {
+    return compareSync(plainText, cypherText);
+  };
 }
-
