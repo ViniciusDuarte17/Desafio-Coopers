@@ -10,5 +10,28 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/client
+GET http://localhost:3003/task/
+
+
 ###
+
+POST http://localhost:3003/task
+Content-Type: application/json
+
+{
+    "title": "testando6",
+    "status": 0
+}
+
+###
+
+PUT http://localhost:3003/task/24b6949b-246a-47a7-b8a5-8403b9d777be
+Content-Type: application/json
+
+{
+    "status": 0
+}
+
+###
+
+DELETE http://localhost:3003/task/delete/477524ae-bce5-44c5-8b41-0fd4e632e662
