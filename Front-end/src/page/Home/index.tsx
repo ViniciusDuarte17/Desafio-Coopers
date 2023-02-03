@@ -36,12 +36,12 @@ export const Home: React.FC = () => {
 
   const addTask = (id: string) => {
     const taskList = task && task.filter( item => id === item.id)
-    // const idTask = taskList[0]?.id
+   
     const body = {
-      status: taskList[0]?.status
+      status: taskList && taskList[0]?.status
     }
-    console.log(taskList[0]?.id, body)
-    udateTastk(taskList[0]?.id, body, setTask)
+    console.log(taskList[0]?.id && taskList[0]?.id, body)
+    udateTastk(taskList[0]?.id && taskList[0]?.id, body, setTask)
   };
 
   const taskDone = task && task.filter((item) => item.status !== 0).map((item) => item);
