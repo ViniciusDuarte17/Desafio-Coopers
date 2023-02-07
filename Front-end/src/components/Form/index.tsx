@@ -1,7 +1,7 @@
 import * as S from "./styled";
 import LogoGrafismo from "../../assets/grafismo.png";
 import LogoProfile from "../../assets/tatiana.png";
-import LogoVector from "../../assets/Vector.png";
+import LogoVectorEmail from "../../assets/Email.png";
 import { Button, TextField } from "@mui/material";
 import { useForm } from "../../hooks/useForm";
 import emailjs from "@emailjs/browser";
@@ -45,7 +45,7 @@ export const Form = () => {
             <S.Form onSubmit={senEmail}>
                 <S.ContentItemTouch>
                     <S.DivTouch>
-                        <img width={"25px"} src={LogoVector} alt="e-mail" />
+                        <img width={"25px"} src={LogoVectorEmail} alt="e-mail" />
                     </S.DivTouch>
                     <S.DivTouchText>
                         <span>GET IN </span>
