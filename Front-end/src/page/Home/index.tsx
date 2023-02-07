@@ -81,9 +81,9 @@ export const Home: React.FC = () => {
 
           <S.TextSpan>The only way to get things done</S.TextSpan>
 
-          <S.NavTodoList>
-            <S.ButtonTodoList>
-              <span>Go to to-do list</span>
+          <S.NavTodoList href="#to-list">
+            <S.ButtonTodoList  >
+              <span >Go to to-do list</span>
             </S.ButtonTodoList>
           </S.NavTodoList>
         </S.OrganizeToDoList>
@@ -100,7 +100,7 @@ export const Home: React.FC = () => {
       <S.FigureIcon>
         <img src={IconsScroll} alt="icons sete" />
       </S.FigureIcon>
-      <S.DragAndDiv>
+      <S.DragAndDiv id="to-list">
         <S.H1>To-do List</S.H1>
         <S.SpanList>
           Drag and drop to set your main priorities, check <br /> when done and

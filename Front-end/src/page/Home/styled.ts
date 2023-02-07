@@ -108,7 +108,7 @@ export const TextSpan = styled.span`
 `
 
 
-export const NavTodoList = styled.nav`
+export const NavTodoList = styled.a`
     padding: 2.5%;
 `
 
