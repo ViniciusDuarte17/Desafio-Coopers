@@ -18,7 +18,7 @@
  <p>
     Esse projeto foi bem desafiador. O figma do projeto achei complexo, porém como já tinha me preparada antes consegui implementar o layout. 
     Minha maior dificuldade foi na implementação do drag-and-drop, pois nunca fiz algo parecido.
-    Pesquisei para ver como faz e achei a documentação do Reat DnD. Após isso o desafio foi na renderização da tarefa. Porque eu atualizo a minha lista de tarefa           com o endpoint de atualizar tarefa que está no back-end, por fim usei o estado do react para resolver esse problema de renderização, criado uma nova lista com os       dados atualizado a mudança na tela reflete assim que o usuário usa o efeito drag-and-drop.
+    Pesquisei para ver como faz e achei a documentação do Reat DnD. Após isso o desafio foi na renderização da tarefa. Porque eu atualizo a minha lista de tarefa           com o endpoint de atualizar tarefa que está no back-end, por fim usei o estado do react para resolver esse problema de renderização, criando uma nova lista com os     dados atualizado a mudança na tela reflete assim que o usuário usa o efeito drag-and-drop.
  </p>
  
  [Link da documentação do React-DnD](https://react-dnd.github.io/react-dnd/docs/overview)
