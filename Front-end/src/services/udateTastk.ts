@@ -5,7 +5,8 @@ export const udateTastk =  (id: string, body: any, setTask: React.Dispatch<React
     axios
     .put(`https://viniTodo-production.up.railway.app/task/${id}`, body)
     .then( (res) => {
-        setTask(res.data.task)
+        // setTask('')
+        // alert('tarefa adicionada')
     })
     .catch( (err) => {
         console.log(err)

@@ -29,6 +29,7 @@ export const Home: React.FC = () => {
   const [isValue, setIsValue] = useState<boolean>();
   const [counter, setCounter] = useState<number>(0);
   
+  
   const [{ isOver, canDrop }, drop] = useDrop<task, any, any>(
     () => ({
       accept: "str",
@@ -38,7 +39,7 @@ export const Home: React.FC = () => {
         canDrop: !!monitor.canDrop(),
       }),
     }),
-    [isValue, counter]
+    [task, isValue]
   );
  
 
@@ -50,12 +51,19 @@ export const Home: React.FC = () => {
     if (taskList === undefined) {
       alert("arraste novamente");
     }
+    const newObjList: task = {
+      id: taskList!.id,
+      status: 1,
+      title: taskList!.title
+    }
+  
     const body = {
       status: taskList && taskList?.status,
     };
     if (taskList !== undefined) {
       setIsValue(canDrop);
       setCounter(+1);
+      setTask([...task, newObjList ] )
       udateTastk(taskList?.id as string, body, setTask);
     }
   };
@@ -64,7 +72,7 @@ export const Home: React.FC = () => {
 
   useEffect(() => {
     getTask(setTask);
-  }, [ counter ]);
+  }, [ counter]);
 
   return (
     <S.Container>
